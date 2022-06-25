@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSignUpUser()">
+            <label>
+                <input type="text" placeholder="Enter Your Name" formControlName="name">
+            </label>
+            <span *ngIf="userName && userName.errors && userName.errors['required'] && isSubmitted" style="color: red">
+                *User name is required
+            </span>
+            <span *ngIf="userName && userName.errors && userName.errors['maxlength'] && isSubmitted" style="color: red">
+                *User name should not exceed 8 chatacters
+            </span>
+            <label>
+                <input type="email" placeholder="Enter Your Email" formControlName="email">
+            </label>
+            <span *ngIf="userEmail && userEmail.errors && userEmail.errors['required'] && isSubmitted"
+                style="color: red">
+                *Email is required
+            </span>
+            <span *ngIf="userEmail && userEmail.errors && userEmail.errors['email'] && isSubmitted" style="color: red">
+                *Email is Invalid
+            </span>
+            <label>
+                <input type="password" placeholder="Enter Your Password" formControlName="password">
+            </label>
+            <span *ngIf="userPassword && userPassword.errors && userPassword.errors['required'] && isSubmitted"
+                style="color: red">
+                *Password is required
+            </span>
+            <span *ngIf="userPassword && userPassword.errors && userPassword.errors['minlength'] && isSubmitted"
+                style="color: red">
+                *Password lenght sholud not be less than 6 chanracters
+            </span>
+            <button class="sign-btn">Sign Up</button>
+            <p>Already have an account ? <span [routerLink]="['']"
+                    style="cursor: pointer; color: blue; font-weight: 800">Login</span></p>
+        </form>
+    </div>
+</div>

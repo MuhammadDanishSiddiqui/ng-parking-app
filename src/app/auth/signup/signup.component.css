@@ -1,0 +1,43 @@
+.wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.container {
+   width: 350px;
+   padding: 30px 40px;
+   text-align: center;
+   box-shadow: 10px 10px 10px grey;
+   border: 1px solid gray;
+   border-radius: 10px;
+   margin: auto
+}
+
+.container > h1 {
+    margin-bottom: 20px;
+}
+.container input {
+    padding: 10px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.sign-btn {
+    background: green;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid green;
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.sign-btn:hover {
+    background-color: blue;
+}
