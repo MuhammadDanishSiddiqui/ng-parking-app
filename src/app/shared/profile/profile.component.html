@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <h1>Profile</h1>
+        <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()">
+            <label>
+                <input type="text" placeholder="Enter Name" formControlName="name">
+            </label>
+            <span *ngIf="userName && userName.errors && userName.errors['required'] && isSubmitted" style="color: red">
+                *User name is required
+            </span>
+            <span *ngIf="userName && userName.errors && userName.errors['maxlength'] && isSubmitted" style="color: red">
+                *User name should not exceed 8 chatacters
+            </span>
+            <label>
+                <input type="email" placeholder="Enter Email" formControlName="email">
+            </label>
+            <label>
+                <input type="number" placeholder="Enter Phone Number" formControlName="phone">
+            </label>
+            <label>
+                <input type="text" placeholder="Enter Address" formControlName="address">
+            </label>
+            <ng-template [ngIf]="isLoading" [ngIfElse]="showSubmit">
+                <div style="display:flex; justify-content: center;">
+                    <div class=" loader"></div>
+                </div>
+            </ng-template>
+            <ng-template #showSubmit>
+                <div style="display:flex ;">
+                    <button type="button" class="edit-btn" (click)="onEditForm()">Edit</button>
+                    <button type="submit" class="update-btn">Update</button>
+                </div>
+            </ng-template>
+        </form>
+    </div>
+</div>

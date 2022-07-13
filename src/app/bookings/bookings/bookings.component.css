@@ -1,0 +1,36 @@
+.wrapper {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.table-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table-container > thead {
+    background-color: green;
+    color: white;
+}
+
+.table-container th,td{
+    padding: 10px 0;
+}
+
+.edit-btn,.delete-btn{
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.edit-btn{
+    background-color: blue;
+    margin-right: 5px;
+}
+
+.delete-btn{
+    background-color: red;
+}

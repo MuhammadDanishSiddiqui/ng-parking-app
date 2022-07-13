@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+    .container {
+       width: 350px;
+       padding: 30px 40px;
+       text-align: center;
+       box-shadow: 10px 10px 10px grey;
+       border: 1px solid gray;
+       border-radius: 10px;
+       margin: auto
+    }
+    
+    .container > h1 {
+        margin-bottom: 20px;
+    }
+    .container label > input {
+        padding: 10px;
+        border: 1px solid black;
+        outline: none;
+        border-radius: 10px;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .edit-btn, .update-btn {
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    .edit-btn {
+        background-color: blue;
+        margin-right: 10px;
+        padding: 10px 20px;
+    }
+
+    .update-btn {
+        background-color: green;
+    }

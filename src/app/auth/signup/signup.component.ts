@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,15 +15,25 @@ export class SignupComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
   isSubmitted: boolean = false;
+  isLoading: boolean = false;
 
-  constructor() { }
+  constructor(private auth:AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSignUpUser() {
     this.isSubmitted = true
-    console.log(this.signUpForm)
+    if(this.signUpForm.invalid) return
+      this.isLoading = true
+      this.auth.signUpUser(this.signUpForm.value,()=>{
+        this.isLoading = false
+        alert('Signedup successfully')
+        this.router.navigate(['/profile']);
+      },(error)=>{
+        this.isLoading = false
+        alert(error.message)
+      })
   }
 
   get userName() {

@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="wrapper">
+    <h1>{{currentUser.role == 'admin' ? "All" : "Your"}} Bookings</h1>
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Phone</th>
+                <th>Vehicle Model</th>
+                <th>License plate</th>
+                <th>Booking Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <h3 *ngIf="bookings.length == 0" style="margin-top:20px ;">No Booking Added</h3>
+            <tr *ngFor="let booking of bookings">
+                <td>{{booking.place}}</td>
+                <td>{{booking.phone}}</td>
+                <td>{{booking.vehicle_model}}</td>
+                <td>{{booking.license_plate}}</td>
+                <td>{{formatedDate(booking.entry_time,booking.exit_time)}}</td>
+                <td>
+                    <button [disabled]="isLoading" (click)="onEdit(booking.place_id,booking.booking_id)" class="edit-btn">Edit</button>
+                    <button [disabled]="isLoading" (click)="onDelete(booking.place_id,booking.booking_id)" class="delete-btn">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

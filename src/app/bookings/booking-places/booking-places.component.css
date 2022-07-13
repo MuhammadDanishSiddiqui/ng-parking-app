@@ -1,0 +1,32 @@
+.wrapper {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.place-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    flex-basis: 33.33%;
+    margin-top: 20px;
+    padding: 0 30px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+}
+
+.card h3 {
+    margin: 10px auto;
+    color: blue;
+}
+
+.card-content {
+    border: 1px solid black;
+    cursor: pointer;
+}

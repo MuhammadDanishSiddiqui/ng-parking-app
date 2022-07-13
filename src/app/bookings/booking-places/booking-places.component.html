@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="wrapper">
+    <h1>Our Presence</h1>
+    <div class="place-container">
+        <div [routerLink]="['/booking/'+place.id]" *ngFor="let place of places" class="card">
+            <div class="card-content">
+                <img src="{{place.imgsrc}}"
+                    alt="">
+                <h3>{{place.title}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

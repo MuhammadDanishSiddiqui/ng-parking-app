@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <h1>{{!bookingId ? "Add" : "Update"}} Booking</h1>
+        <form [formGroup]="bookingForm">
+            <label>
+                <input type="text" placeholder="Place" formControlName="place">
+            </label>
+            <label>
+                <input type="number" placeholder="Phone" formControlName="phone">
+            </label>
+            <span *ngIf="phone && phone.errors && phone.errors['required'] && isSubmitted" style="color: red">
+                *Phone number is required
+            </span>
+            <label>
+                <input type="text" placeholder="Vehicle Model" formControlName="vehicle_model">
+            </label>
+            <span *ngIf="vehicleModel && vehicleModel.errors && vehicleModel.errors['required'] && isSubmitted"
+                style="color: red">
+                *Vehicle Model is required
+            </span>
+            <label>
+                <input type="text" placeholder="License Plate" formControlName="license_plate">
+            </label>
+            <span *ngIf="licensePlate && licensePlate.errors && licensePlate.errors['required'] && isSubmitted"
+                style="color: red">
+                *License Plate is required
+            </span>
+            <div>
+                Entry Time <input type="datetime-local" formControlName="entry_time">
+            </div>
+            <span *ngIf="entryTime && entryTime.errors && entryTime.errors['required'] && isSubmitted"
+                style="color: red">
+                *Entry time is required
+            </span>
+            <div>
+                Exit Time <input type="datetime-local" formControlName="exit_time">
+            </div>
+            <span *ngIf="exitTime && exitTime.errors && exitTime.errors['required'] && isSubmitted" style="color: red">
+                *Exit time is required
+            </span>
+            <div style="display: flex; align-items: center;">
+                <span style="margin-right: 10px;">Select Slot: </span>
+                <select formControlName="slot_id" style="flex: 1;padding: 10px;">
+                    <option *ngFor="let slot of filteredSlots" value="{{slot.id}}">{{slot.id}}</option>
+                </select>
+            </div>
+            <span *ngIf="slotId && slotId.errors && slotId.errors['required'] && isSubmitted" style="color: red">
+                *Please select a slot. If no slot is available then try to choose different timings.
+            </span>
+            <ng-template [ngIf]="isLoading" [ngIfElse]="showbtn">
+                <div style="display:flex; justify-content: center;">
+                    <div class=" loader"></div>
+                </div>
+            </ng-template>
+            <ng-template #showbtn>
+                <button *ngIf="!bookingId" (click)="onAddBooking()" class="sign-btn">Confirm</button>
+                <button *ngIf="bookingId" (click)="onUpdateBooking()" class="sign-btn">Update</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

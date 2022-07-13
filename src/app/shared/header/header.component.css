@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+    padding: 10px;
+}
+
+.wrapper > a {
+    text-decoration: none;
+    color: white;
+}
+
+.logout {
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
